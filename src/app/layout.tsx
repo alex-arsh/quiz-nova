@@ -1,15 +1,10 @@
 import React from "react";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist } from "next/font/google";
 import "./css/globals.css";
 
 // Google fonts with CSS variables
 const geistSans = Geist({
     variable: "--font-geist-sans",
-    subsets: ["latin"]
-});
-
-const geistMono = Geist_Mono({
-    variable: "--font-geist-mono",
     subsets: ["latin"]
 });
 
@@ -25,6 +20,21 @@ export const metadata = {
         telephone: false,
         address: false,
         email: false
+    },
+    icons: {
+        icon: "/icons/favicon.ico",
+        shortcut: "/icons/android-chrome-512.png",
+        other: [
+            {
+                rel: "apple-touch-icon",
+                url: "/icons/apple-touch-icon.png"
+            },
+            {
+                rel: "icon",
+                url: "/icons/android-chrome-192.png",
+                sizes: "192x192"
+            }
+        ]
     }
 };
 
@@ -32,7 +42,7 @@ export const viewport = {
     width: "device-width",
     initialScale: 1,
     maximumScale: 1,
-    themeColor: "var(--primary-background)",
+    themeColor: "var(--background)",
     colorScheme: "light dark",
     interactiveWidget: "resizes-content",
     viewportFit: "cover"

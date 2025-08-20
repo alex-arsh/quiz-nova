@@ -2,9 +2,9 @@
 import React, { useState, useMemo, useEffect } from "react";
 import { motion } from "framer-motion";
 import debounce from "lodash.debounce";
-import styles from "@/app/css/modules/Dashboard.module.css";
+import styles from "./css/modules/page.module.css";
 
-export default function Dashboard() {
+export default function Home() {
     const [rawName, setRawName] = useState<string>("");
     const [name, setName] = useState<string>("");
     const [showNameInput, setShowNameInput] = useState<boolean>(true);
@@ -16,14 +16,14 @@ export default function Dashboard() {
             if (stored) {
                 setName(stored);
                 setRawName(stored);
-                setShowNameInput(false); // skip input if name already exists
+                setShowNameInput(false);
             }
         } catch {}
     }, []);
 
     // Debounce to avoid hydration/input lag
     const debouncedSetName = useMemo(
-        () => debounce((val: string) => setName(val.trim()), 300),
+        () => debounce((val: string) => setName(val.trim()), 350),
         []
     );
 
@@ -261,8 +261,8 @@ export default function Dashboard() {
                 <div className={styles.container}>
                     <h2 className={styles.sectionTitle}>Ready to begin?</h2>
                     <p className={styles.text}>
-                        When you’re ready, click Get Started or explore sample
-                        quizzes to feel the vibe.
+                        When you’re ready, click Get Started or explore quizzes
+                        to feel the vibe.
                     </p>
                     <div style={{ marginTop: 16 }}>
                         <motion.button
